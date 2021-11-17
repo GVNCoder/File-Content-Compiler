@@ -27,7 +27,8 @@ namespace FileContentCompiler
             for (var i = 0; i < sourceFileContentLines.Length; i++)
             {
                 var line = sourceFileContentLines[i];
-                var insertMatch = Regex.Match(line, $"^#include\\s\\\"(?'{pathGroupName}'.*?)\\\"");
+                var preProcessedLine = line.TrimStart(' ', '\t');
+                var insertMatch = Regex.Match(preProcessedLine, $"^#include\\s\\\"(?'{pathGroupName}'.*?)\\\"", RegexOptions.Singleline);
                 var matchPath = insertMatch.Success
                     ? insertMatch.Groups[pathGroupName].Value
                     : string.Empty;
