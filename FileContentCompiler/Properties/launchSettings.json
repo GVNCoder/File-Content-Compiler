@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "FileContentCompiler": {
+      "commandName": "Project"
+    }
+  }
+}
